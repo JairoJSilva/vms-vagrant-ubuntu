@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Função para solicitar entrada do usuário
+# Entrada do usuário
 function prompt() {
     local var_name=$1
     local prompt_text=$2
@@ -14,7 +14,7 @@ function prompt() {
     fi
 }
 
-# Solicitar informações ao usuário
+# Input do usuário
 prompt "CLUSTER_NAME" "Digite o nome do cluster" "mycluster"
 prompt "BIND_NET_ADDR" "Digite o endereço da rede de binding (ex: 192.168.1.0)"
 prompt "NODE1_NAME" "Digite o nome ou IP do Node 1"
@@ -23,7 +23,7 @@ prompt "NODE2_NAME" "Digite o nome ou IP do Node 2"
 prompt "NODE2_ID" "Digite o ID do Node 2" "2"
 prompt "FLOATING_IP" "Digite o IP flutuante (ex: 192.168.1.100)"
 
-# Atualizar e instalar pacotes necessários
+# Atualização e instalação pacotes.
 sudo apt update
 sudo apt upgrade -y
 sudo apt install -y pacemaker corosync
