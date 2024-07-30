@@ -1,0 +1,30 @@
+# Vagrantfile
+
+Vagrant.configure("2") do |config|
+  # Configuração da imagem base para ambas as VMs
+  config.vm.box = "bento/ubuntu-20.04"
+
+  # Definição-VM1
+  config.vm.define "machine1" do |machine1|
+    machine1.vm.hostname = "machine1"
+    machine1.vm.network "private_network", ip: "192.168.56.11"
+
+    # Provisionamento-VM1
+    machine1.vm.provision "shell", inline: <<-SHELL
+      apt-get update
+    
+    SHELL
+  end
+
+  # Definição-VM2
+  config.vm.define "machine2" do |machine2|
+    machine2.vm.hostname = "machine2"
+    machine2.vm.network "private_network", ip: "192.168.56.12"
+
+    # Provisionamento-VM2
+    machine2.vm.provision "shell", inline: <<-SHELL
+      apt-get update
+    SHELL
+  end
+end
+
